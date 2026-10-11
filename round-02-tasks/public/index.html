@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Task Tracker</title>
+  </head>
+  <body>
+    <h1>Task Tracker</h1>
+    <ul id="tasks"></ul>
+    <script src="/api.js"></script>
+    <script>
+      TaskApi.list().then((tasks) => {
+        document.getElementById('tasks').innerHTML = tasks
+          .map((t) => `<li>${t.title} (${t.status})</li>`)
+          .join('');
+      });
+    </script>
+  </body>
+</html>

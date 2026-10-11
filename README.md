@@ -25,3 +25,4 @@ npm test
 | Round | App | Bugs | Notes |
 | :-- | :-- | :-- | :-- |
 | 01 | Wallet API | 3 | Backend only |
+| 02 | Task Tracker | 6 | Backend + frontend client, timed 60 min |
