@@ -14,7 +14,7 @@ async function createWallet(req, res) {
 }
 
 async function getWallet(req, res) {
-  const wallet = walletService.getWallet(req.params.id);
+  const wallet = await walletService.getWallet(req.params.id);
   if (!wallet) {
     return res.status(404).json({ error: 'Wallet not found' });
   }
@@ -30,11 +30,12 @@ async function deposit(req, res) {
   if (!wallet) {
     return res.status(404).json({ error: 'Wallet not found' });
   }
+  
   res.json(wallet);
 }
 
 async function withdraw(req, res) {
-  const { amount } = req.query;
+  const { amount } = req.body;
   if (!isValidAmount(amount)) {
     return res.status(400).json({ error: 'amount must be a positive number' });
   }
